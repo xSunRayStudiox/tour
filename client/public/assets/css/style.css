@@ -1,0 +1,360 @@
+:root {
+   --color-bg: #ffffff;
+   --color-bg1: #d8d6d6;
+   --color-text: #000000;
+   --color-primary: #0400ff;
+   --color-success: #ff0000;
+   --color-nav-active: #ff0000;
+   --card-bg: rgba(225, 225, 225, 0.538);
+   --card-border: rgba(255, 255, 255, 0.4);
+   --shadow: rgba(0, 0, 0, 0);
+}
+
+[data-theme="dark"] {
+   --color-bg: #121212;
+   --color-bg1: #252525;
+   --color-text: #f1f1f1;
+   --color-primary: #ff6666;
+   --color-success: #5274d3;
+   --color-nav-active: #7faafa;
+   --card-bg: rgba(30, 30, 30, 0.5);
+   --card-border: rgba(255, 255, 255, 0.1);
+   --shadow: rgba(0, 0, 0, 0);
+}
+
+body {
+   background-color: var(--color-bg);
+   color: var(--color-text);
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bg {
+   background-color: var(--color-bg) !important;
+}
+
+.bg1 {
+   background-color: var(--color-bg1);
+}
+
+/* Logo */
+.logo {
+   font-weight: 700;
+   font-size: 1.8rem;
+   letter-spacing: 1px;
+   background: linear-gradient(to right, var(--primary-color), var(--success-color));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.logo-highlight {
+   font-weight: 700;
+}
+
+.navbar-brand {
+   font-weight: 700;
+   font-size: 1.8rem;
+   letter-spacing: 1px;
+   background: linear-gradient(to right, var(--color-primary), var(--color-success));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+   color: var(--color-text) !important;
+   padding: 0.5rem 0.75rem;
+   border-radius: 0.375rem;
+   transition: all 0.3s ease;
+   font-weight: 500;
+}
+
+.nav-link:hover {
+   text-decoration: none;
+   color: var(--color-nav-active) !important;
+}
+
+.nav-link:hover svg,
+.nav-link.active svg,
+.nav-link.active {
+   color: var(--color-nav-active) !important;
+   font-weight: 600;
+}
+
+
+.btn-outline-secondary {
+   color: var(--color-text);
+   background-color: var(--color-bg);
+   border-color: var(--color-text);
+   border-radius: 5px !important;
+   padding: 5px !important;
+   margin: 0 !important;
+   transition: background 0.3s, color 0.3s;
+}
+
+.btn-outline-secondary:hover {
+   color: var(--color-nav-active);
+   background-color: var(--color-bg);
+   border-color: var(--color-primary);
+}
+
+.bottom-nav a {
+   color: var(--color-text);
+   text-decoration: none;
+   transition: color 0.2s ease;
+}
+
+.bottom-nav a:hover {
+   color: var(--color-nav-active);
+}
+
+.bottom-nav a.active {
+   color: var(--color-nav-active);
+   font-weight: 600;
+}
+
+footer h6 {
+   color: var(--color-text);
+}
+
+.footer-nav {
+   color: var(--color-text);
+   text-decoration: none;
+   display: block;
+   padding: 5px 0;
+}
+
+.footer-nav:hover {
+   color: var(--color-nav-active);
+   text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+svg,
+i,
+a {
+   color: var(--color-text) !important;
+}
+
+input,
+select,
+.input-group-text,
+textarea {
+   background-color: transparent !important;
+   color: var(--color-text) !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+   color: var(--color-text) !important;
+   opacity: 0.5 !important;
+}
+
+.glass-card {
+   background: var(--card-bg);
+   border: 1px solid var(--card-border);
+   color: var(--color-text);
+   border-radius: 2%;
+   box-shadow: 0 10px 10px var(--shadow);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   transition: all 0.4s ease;
+}
+
+.destination-card {
+   height: clamp(100px, 20vw, 150px);
+   width: clamp(150px, 20vw, 220px);
+   cursor: pointer;
+   transition: transform 0.3s ease-in-out;
+}
+
+.destination-card:hover {
+   transform: scale(1.01);
+}
+
+.destination-img {
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+   transition: 0.3s ease;
+}
+
+.destination-overlay {
+   background: rgba(0, 0, 0, 0.4);
+   opacity: 0;
+   transition: opacity 0.3s ease;
+   border-radius: 8px;
+}
+
+.destination-card:hover .destination-overlay {
+   opacity: 1;
+}
+
+.horizontal-scroll {
+   display: flex;
+   flex-wrap: nowrap;
+   overflow-x: auto;
+   gap: 1rem;
+   padding-bottom: 0.5rem;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+   display: none;
+}
+
+.city-title {
+   font-size: clamp(12px, 2.5vw, 18px);
+   font-weight: 600;
+}
+
+.city-link {
+   font-size: clamp(12px, 2vw, 18px);
+}
+
+.city-link:hover {
+   color: var(--color-nav-active) !important;
+}
+
+.card-img-top {
+   height: clamp(150px, 20vw, 200px);
+}
+
+.card-body {
+   padding: 10px !important;
+}
+
+.card-title {
+   font-size: clamp(12px, 2vw, 16px);
+   color: var(--color-nav-active) !important;
+   padding: 3px 0;
+}
+
+.card-text {
+   font-size: clamp(10px, 2vw, 14px);
+   color: var(--color-text) !important;
+}
+
+.admin-sidebar {
+   height: 100%;
+   position: fixed;
+   top: 60px;
+   border-radius: 0 !important;
+   left: 0;
+   width: 15%;
+   cursor: pointer;
+   transform: translateX(-100%);
+   transition: transform 0.3s ease-in-out;
+   z-index: 1000;
+}
+
+.admin-sidebar.show {
+   transform: translateX(0);
+}
+
+.admin-toggle {
+   position: absolute;
+   top: 50%;
+   height: 30px;
+   width: 5px;
+   border-radius: 2px;
+   background: var(--color-text) !important;
+   right: -10px;
+}
+
+@media (max-width: 768px) {
+   .admin-sidebar {
+      width: 50%;
+   }
+}
+
+/* EditUserModal.css */
+
+.modal-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: rgba(0, 0, 0, 0.5);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   z-index: 1000;
+}
+
+.modal-box {
+   background: var(--color-bg);
+   padding: 20px;
+   width: 90%;
+   max-width: 500px;
+   border-radius: 8px;
+   box-shadow: 0 2px 10px rgba(138, 135, 135, 0.2);
+}
+
+.modal-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 15px;
+}
+
+.modal-header h2 {
+   margin: 0;
+}
+
+.close-button {
+   background: none;
+   border: none;
+   font-size: 1.5rem;
+   cursor: pointer;
+}
+
+.modal-body {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.modal-body label {
+   font-weight: bold;
+}
+
+.modal-body input,
+.modal-body select {
+   padding: 8px;
+   font-size: 1rem;
+   border-radius: 4px;
+   border: 1px solid var(--color-text);
+}
+
+.modal-footer {
+   display: flex;
+   justify-content: flex-end;
+   margin-top: 20px;
+   gap: 10px;
+}
+
+.btn {
+   padding: 8px 16px;
+   font-size: 1rem;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+.btn.cancel {
+   background-color: #ccc;
+}
+
+.btn.save {
+   background-color: #007bff;
+   color: white;
+}
