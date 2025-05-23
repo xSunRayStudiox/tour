@@ -23,7 +23,7 @@ app.use(
 );
 app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 mongoose
     .connect(process.env.MONGO_URI)
