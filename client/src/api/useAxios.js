@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const useAxios = axios.create({
-   baseURL: 'http://localhost:5000/api',
+   baseURL: 'https://tour-mw3t.onrender.com',
 });
 
 export default useAxios;

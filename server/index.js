@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import path from 'path'
 
 import userRoutes from './routes/userRoutes.js'
 import cityRoutes from './routes/cityRoutes.js'
@@ -17,7 +16,7 @@ dotenv.config();
 const app = express();
 app.use(
     cors({
-        origin: ["http://localhost:5173", "https://pms-p6lo.onrender.com"],
+        origin: ["http://localhost:5173", "https://tour-mw3t.onrender.com"],
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     })
