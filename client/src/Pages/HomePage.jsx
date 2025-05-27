@@ -1,4 +1,3 @@
-import React from 'react';
 import Layout from '../components/Layout';
 import { BsGeoAlt, BsPeople, BsCashCoin, BsShieldCheck } from "react-icons/bs";
 import { useCities } from '../api/useCities';
@@ -17,9 +16,6 @@ const HomePage = () => {
     fetchAllBookings,
   } = useBookings();
 
-
-  console.log(bookings)
-
   useEffect(() => {
     fetchCities();
     fetchPackages();
@@ -28,6 +24,7 @@ const HomePage = () => {
   }, []);
 
   const cityArray = Array.isArray(cities?.cities) ? cities.cities : [];
+  const offerArray = Array.isArray(offers) ? offers : [];
 
 
   const getStatusTextClass = (status) => {
@@ -98,7 +95,6 @@ const HomePage = () => {
       <section className="mt-4 mt-md-5">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <h6 className="mb-0 city-title">Top Destinations</h6>
-
         </div>
 
         <div className="horizontal-scroll d-flex flex-nowrap overflow-auto py-2 px-2">
@@ -125,7 +121,8 @@ const HomePage = () => {
         </div>
 
         <div className="horizontal-scroll d-flex flex-nowrap overflow-auto py-2 px-2">
-          {packages.map((pkg) => (
+          {Array.isArray(packages) && packages.map((pkg) => (
+
             <div className="col-12 col-md-3" key={pkg._id}>
               <div className="glass-card h-100 position-relative overflow-hidden">
                 <div className="card-actions position-absolute top-0 start-0 end-0 d-flex justify-content-between p-2 z-1">
@@ -155,10 +152,10 @@ const HomePage = () => {
       <section className="mt-3 mt-md-5">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <h6 className="mb-0 city-title">Special Offers</h6>
-
         </div>
+
         <div className="horizontal-scroll d-flex flex-nowrap overflow-auto py-2 px-2">
-          {offers.map((offer) => (
+          {offerArray.map((offer) => (
             <div className="col-12 col-md-4 mb-3" key={offer._id}>
               <div className="glass-card h-100">
                 <div className="card-actions d-flex justify-content-between px-2 pt-2">
@@ -180,19 +177,16 @@ const HomePage = () => {
       </section>
 
       {/* Bookings Section */}
-      {bookings.length > 0 && (
+      {Array.isArray(bookings) && bookings.length > 0 && (
         <section className="mt-3 mt-md-5">
           <div className="d-flex justify-content-between align-items-center mb-2">
             <h6 className="mb-0 city-title">Your Bookings</h6>
           </div>
           <div className="horizontal-scroll d-flex flex-nowrap overflow-auto py-2 px-2">
             {bookings.map((booking) => {
-              // Safely get package title or fallback
               const packageTitle = booking.package ? booking.package.title : 'No Package Info';
-
               const cityName = typeof booking.city === 'string' ? booking.city : (booking.city?.name || 'Unknown City');
 
-              // Format date strings to readable format
               const formatDate = (dateStr) => {
                 if (!dateStr) return '-';
                 const d = new Date(dateStr);

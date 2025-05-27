@@ -36,6 +36,7 @@ export const useCities = () => {
         setLoading(true);
         try {
             const data = await getAllCities();
+            console.log('Fetched cities:', data);
             setCities(data);
         } catch (err) {
             console.error('fetchCities:', err);
@@ -67,7 +68,7 @@ export const useCities = () => {
     const updateCityById = async (id, formData) => {
         try {
             const updatedCity = await updateCity(id, formData);
-            setCities((prev) =>prev.map((city) => (city._id === id ? updatedCity : city)));
+            setCities((prev) => prev.map((city) => (city._id === id ? updatedCity : city)));
             return updatedCity;
         } catch (err) {
             console.error('updateCityById:', err);
@@ -85,6 +86,16 @@ export const useCities = () => {
             return false;
         }
     };
+
+    useEffect(() => {
+        axios.get('/cities')
+            .then(res => {
+                console.log('Cities data:', res.data);
+            })
+            .catch(err => {
+                console.error('Error fetching cities:', err.message);
+            });
+    }, []);
 
     return {
         cities,

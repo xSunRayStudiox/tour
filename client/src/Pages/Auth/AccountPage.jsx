@@ -5,11 +5,15 @@ import Layout from '../../components/Layout';
 
 const AccountPage = () => {
     const { user, setUser, logout, isAuthenticated, isAdmin } = useAuth();
-    const { updateUserById } = useUsers();
+    const { updateUserById, fetchUsers } = useUsers();
 
     const [editing, setEditing] = useState(false);
     const [userData, setUserState] = useState({ name: '', number: '', email: '' });
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        fetchUsers();  // ab ye function defined hai aur call hoga
+    }, []);
 
     useEffect(() => {
         if (isAuthenticated) {

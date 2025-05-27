@@ -17,6 +17,7 @@ const app = express();
 app.use(
     cors({
         origin: ["http://localhost:5173", "https://tour-mw3t.onrender.com"],
+        // origin: "*",
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     })
@@ -38,6 +39,14 @@ mongoose
 // images folder
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
+// Routes
+app.use('/api/users', userRoutes);
+app.use('/api/cities', cityRoutes);
+app.use('/api/offers', offerRoutes);
+app.use('/api/package', packageRoutes);
+app.use('/api/booking', bookingRoutes);
+
+
 // Serve frontend in production
 const __dirname = path.resolve();
 
@@ -46,9 +55,3 @@ app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
-// Routes
-app.use('/api/users', userRoutes);
-app.use('/api/cities', cityRoutes);
-app.use('/api/offers', offerRoutes);
-app.use('/api/package', packageRoutes);
-app.use('/api/booking', bookingRoutes);

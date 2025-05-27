@@ -1,4 +1,3 @@
-import React from 'react';
 import { BiSolidOffer, BiSupport } from "react-icons/bi";
 import { SlWallet } from "react-icons/sl";
 import { BsHouseDoorFill, BsSunFill, BsMoonStarsFill, BsPersonCircle, BsQuestionCircle } from 'react-icons/bs';
@@ -9,7 +8,7 @@ import useIsMobile from '../utils/useMobile';
 import { useLocation } from 'react-router-dom';
 
 export default function Layout({ children }) {
-    const { isAuthenticated, user, logout } = useAuth();
+    const { isAuthenticated, user } = useAuth();
     const { theme, toggleTheme } = useTheme();
     const isMobile = useIsMobile();
 
@@ -78,11 +77,11 @@ export default function Layout({ children }) {
                             <BsHouseDoorFill className="fs-4" />
                             <div>Home</div>
                         </a>
-                        <a href="/offers" className={`small ${isActive('/') ? 'active' : ''}`}>
+                        <a href="/" className={`small ${isActive('/offer') ? 'active' : ''}`}>
                             <BiSolidOffer className="fs-4" />
                             <div>Offers</div>
                         </a>
-                        <a href="/myTrip" className={`small ${isActive('/') ? 'active' : ''}`}>
+                        <a href="/" className={`small ${isActive('/myTrip') ? 'active' : ''}`}>
                             <SlWallet className="fs-4" />
                             <div>My Trip</div>
                         </a>
